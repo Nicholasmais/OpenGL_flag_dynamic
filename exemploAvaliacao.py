@@ -6,6 +6,7 @@ import sys
 import random
 
 global x1,y1, x2,y2, x3,y3, xstep, ystep, rsize, windowWidth, windowHeight, cor_Fundo, cor_Losango, cor_Circulo, initialWidth, initialHeight, texto
+
 x1, y1 = 0, 0
 x2, y2 = 0, 0
 x3, y3 = 0, 0
