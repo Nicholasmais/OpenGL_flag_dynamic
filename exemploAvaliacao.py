@@ -25,6 +25,8 @@ cor_Circulo = [0,0,.5]
 initialWidth = 100
 initialHeight = 100
 
+texto = ''
+
 def DesenhaBrasil(flagSize, x, y,
                  corFundo = [0,.5,0],
                  corLosango = [.8,.8,.0],
@@ -73,6 +75,7 @@ def Desenha():
   glLoadIdentity()
   gluOrtho2D(-rsize,rsize,-rsize,rsize)
   DesenhaBrasil(1, x1, y1)
+  DesenhaTexto(texto)
 
   glViewport(0,0,int(windowWidth/2),int(windowHeight / 2))
   glMatrixMode(GL_MODELVIEW)
@@ -247,6 +250,17 @@ def CriaMenu():
   glutAddSubMenu("Alterar tamanho de bandeira.", subMenuTamanho)
   glutAddSubMenu("Mudar cor de bandeira", subMenuCor)
   glutAttachMenu(GLUT_RIGHT_BUTTON)
+
+def DesenhaTexto(string):
+  global x1,y1, x2,y2, x3,y3, xstep, ystep, rsize, windowWidth, windowHeight, cor_Fundo, cor_Losango, cor_Circulo, initialWidth, initialHeight, texto
+
+  glPushMatrix()
+  glRasterPos2f(rsize-15,rsize-5)
+  
+  for char in string:
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,ord(char))
+
+  glPopMatrix()
 
 def MovingMouse(x, y):
   global x1,y1, x2,y2, x3,y3, xstep, ystep, rsize, windowWidth, windowHeight, cor_Fundo, cor_Losango, cor_Circulo, initialWidth, initialHeight, texto
